@@ -1,0 +1,14 @@
+.footer{
+    display: block;
+    background-color: lightslategrey;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+    margin-top:15px;
+}

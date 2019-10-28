@@ -1,0 +1,22 @@
+.container{
+    display: block;
+    height: 667px;
+    /* width: 100%; */
+    margin: 0;
+    padding: 0;
+}
+
+
+.menubarHolder{
+    padding-right:0
+}
+
+.cntrHolder{
+    padding: 0;
+}
+
+
+
+/* .cntrHolder .list-group .list-group-item{
+    color: #007bff;
+} */

@@ -1,0 +1,10 @@
+.list-group .list-group-item:hover{
+    background-color: #007bff;
+    cursor: pointer;
+}
+
+.patient-name{
+    font-size: 25px;
+    font-weight: bold;
+    background-color: palegreen;
+}
