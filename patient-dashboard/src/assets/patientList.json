@@ -1,7 +1,7 @@
 [{
     "id": 11,
     "name": "MR Nice",
-    "dob" : "1 Jan 1985",
+    "dob" : "1988-10-31",
     "accessionNumber" : "4324374734723402304",
     "site_name" : "san ramon health site",
     "studies" : [
@@ -14,7 +14,7 @@
 {
     "id": 12,
     "name": "Johny Bravo",
-    "dob" : "1 feb 2000",
+    "dob" : "2000-02-01",
     "accessionNumber" : "7547456456546546",
     "site_name" : "san ramon health site 01",
     "studies" : [
@@ -30,7 +30,7 @@
 {
     "id": 13,
     "name": "Shane Warne",
-    "dob" : "1 feb 2000",
+    "dob" : "2000-02-01",
     "accessionNumber" : "75435043753405345",
     "site_name" : "san ramon health site 01",
     "studies" : [

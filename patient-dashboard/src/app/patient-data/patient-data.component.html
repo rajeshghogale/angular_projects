@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-3" style="padding-right:0;">
         <ul class="list-group">
-            <li class="list-group-item" *ngFor="let patient of patientList" (click) = "selectedPatient(patient)">
+            <li class="list-group-item" *ngFor="let patient of patientList" (click)="selectedPatient(patient)">
                 <div><b>{{patient.name | uppercase}}</b></div>
                 <div>{{patient.site_name}}</div>
             </li>
@@ -9,25 +9,29 @@
     </div>
     <div class="col-md-9" *ngIf="showDetails" style="padding:0;">
         <div class="datacntr" style="background-color: lightgrey;padding: 10px  ;">
-                <div class="patient-name">
-                    <span>{{selectedPatientData.name | uppercase}}</span>
-                </div>
-                <div>
-                        <span>DOB:</span>
-                        <span>{{selectedPatientData.dob}}</span>
-                    </div> 
-                <div>
-                    <span>Accession No:</span>
-                    <span>{{selectedPatientData.accessionNumber}}</span>
-                </div>                
+            <div class="patient-name">
+                <span>{{selectedPatientData.name | uppercase}}</span>
+            </div>
+            <div>
+                <span>DOB:</span>
+                <span>{{selectedPatientData.dob}}</span>
+            </div>
+            <div>
+                <span>Age:</span>
+                <span>{{selectedPatientData.dob | agePipe}}</span>
+            </div>
+            <div>
+                <span>Accession No:</span>
+                <span>{{selectedPatientData.accessionNumber}}</span>
+            </div>
+            <hr>
+            <div><b>Studies:</b></div>
+            <div *ngFor="let study of selectedPatientData.studies" style="padding: 10px;">
+                <div>{{study.name}}</div>
+                <div>{{study.studyDate}}</div>
                 <hr>
-                <div><b>Studies:</b></div>
-                <div *ngFor="let study of selectedPatientData.studies" style="padding: 10px;">
-                    <div>{{study.name}}</div>
-                    <div>{{study.studyDate}}</div>
-                    <hr>
-                </div>
+            </div>
         </div>
-        
+
     </div>
 </div>

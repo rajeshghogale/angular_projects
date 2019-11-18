@@ -17,7 +17,7 @@ export class PatientDataComponent implements OnInit {
   constructor(private patientDataService:PatientDataService,private http: HttpClient ) { }
 
   ngOnInit() {
-    this.http.get('/assets/patientList.json').subscribe(
+    this.patientDataService.getPatientDataList().subscribe(
       data => {
         this.patientList = data;
       },
@@ -32,7 +32,5 @@ export class PatientDataComponent implements OnInit {
     this.selectedPatientData = patient;
     console.log(patient);
   }
-
-  
 
 }

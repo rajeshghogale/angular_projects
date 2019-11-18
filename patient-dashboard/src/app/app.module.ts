@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule,MatFormFieldModule,MatInputModule,MatTableModule} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -20,6 +20,11 @@ import { CaseAutomationComponent } from './case-automation/case-automation.compo
 import { PatientDataService } from './patient-data/patient-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AgePipePipe } from './pipes/age-pipe.pipe';
+import { ModalContentComponent } from './case-automation/modal-content/modal-content.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { CanDeactivateComponent } from './can-deactivate/can-deactivate.component';
+import { ConfirmDeactivateGuard } from './ConfirmDeactivateGuard';
 
 
 
@@ -33,17 +38,26 @@ import { AppRoutingModule } from './app-routing.module';
     AppConfigComponent,
     PatientDataComponent,
     DashboardComponent,
-    CaseAutomationComponent
+    CaseAutomationComponent,
+    AgePipePipe,
+    ModalContentComponent,
+    CanDeactivateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatMenuModule,
-    HttpClientModule
+    MatTableModule,
+    HttpClientModule,
+    NgbModule,
+    FormsModule,ReactiveFormsModule 
   ],
   providers: [PatientDataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ ModalContentComponent ]
 })
 export class AppModule { }

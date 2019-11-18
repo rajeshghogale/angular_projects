@@ -2,7 +2,7 @@
     display: block;
     background-color: lightslategrey;
     height: 50px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }

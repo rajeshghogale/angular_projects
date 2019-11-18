@@ -4,6 +4,7 @@ import { AppConfigComponent } from './config/config.component';
 import { PatientDataComponent } from './patient-data/patient-data.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CaseAutomationComponent } from './case-automation/case-automation.component';
+import { ConfirmDeactivateGuard } from './ConfirmDeactivateGuard';
 
 
 const routes: Routes = [
@@ -21,8 +22,11 @@ const routes: Routes = [
   },
   {
     path:'case-auto',
-    component: CaseAutomationComponent
-  }
+    component: CaseAutomationComponent,
+    canDeactivate: [ConfirmDeactivateGuard]
+  },
+  { path: 'caseconfig', loadChildren: () => import('./config/modules/caseconfig/caseconfig.module').then(m => m.CaseconfigModule) },
+  { path: 'siteconfig', loadChildren: () => import('./config/modules/siteconfig/siteconfig.module').then(m => m.SiteconfigModule) }
 ];
 
 @NgModule({

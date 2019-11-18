@@ -1,0 +1,36 @@
+<!-- <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12 ">
+                <input [(ngModel)]="name" type="text">
+        </div>
+        <div class="col-md-12">
+                <input [(ngModel)]="age" type="number">
+        </div>
+        <div class="col-md-12">
+                <button (click)="submitForm()" type="submit" class="btn btn-primary">Submit Form</button>
+        </div>
+            
+    </div>
+    
+</div> -->
+<form [formGroup]="userForm" (submit)="saveUser()">
+    <label for="firstname">Name</label>
+    <input formControlName="firstname" id="firstname" #firstname="ngControl"/>
+    <div *ngIf="(firstname.dirty || firstname.touched) && firstname.hasError('required')">Required</div>
+
+    <label for="lastName">Email</label>
+    <input formControlName="lastName" id="lastName"  />
+    <div *ngIf="lastName.touched && lastName.hasError('email')">Invalid</div>
+
+    <!-- <label for="profile">Profile Description</label>
+    <input formControlName="email" id="profile" #profile="ngControl" /> -->
+    <!-- <div *ngIf="profile.touched && profile.hasError('required')">Invalid</div> -->
+
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
