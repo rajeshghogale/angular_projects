@@ -1,16 +1,39 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component, ViewChild, OnInit, ChangeDetectorRef, Input, SimpleChanges } from "@angular/core";
 import { Validators } from "@angular/forms";
 import { FieldConfig } from "./field.interface";
 import { DynamicFormComponent } from "./components/dynamic-form/dynamic-form.component";
+import { GetFormDataService } from "./get-form-data.service";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent {
-  @ViewChild(DynamicFormComponent,{static:true}) form: DynamicFormComponent;
-  regConfig: FieldConfig[] = [
+export class AppComponent implements OnInit{
+  regConfig :any = [];
+ // @ViewChild(DynamicFormComponent,{static:true}) form: DynamicFormComponent;
+  //@Input('fields') fields: any;
+  showForm:boolean = false;
+  constructor(private getFormDataService:GetFormDataService,private ref: ChangeDetectorRef){}
+
+  
+  
+  ngOnInit(){
+    this.getFormDataService.getDynamicFormData().subscribe(
+      data => {
+        this.regConfig = data;        
+        console.log(this.regConfig);
+      },
+      (err:any) => {
+        console.log(err);
+      }
+    )
+
+    console.log(this.regConfig2);
+  }
+
+  
+  regConfig2 = [
     {
       type: "input",
       label: "Username",
@@ -99,6 +122,8 @@ export class AppComponent {
       label: "Save"
     }
   ];
+
+  
 
   submit(value: any) {}
 }
