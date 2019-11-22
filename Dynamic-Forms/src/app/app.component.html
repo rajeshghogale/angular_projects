@@ -1,10 +1,10 @@
 <div class="form">
   <div style="text-align:center">
-    <h1>
+    <h1 *ngIf="showForm">
       Registration Form
     </h1>
   </div>
-  <div *ngIf="regConfig != null">
+  <div *ngIf="showForm">
     <dynamic-form [fields]="regConfig" (submit)="submit($event)"></dynamic-form>
   </div>
   <!-- <div class="margin-top">

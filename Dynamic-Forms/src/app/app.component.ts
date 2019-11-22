@@ -10,7 +10,7 @@ import { GetFormDataService } from "./get-form-data.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit{
-  regConfig :any = [];
+  regConfig :FieldConfig[] = [];
  // @ViewChild(DynamicFormComponent,{static:true}) form: DynamicFormComponent;
   //@Input('fields') fields: any;
   showForm:boolean = false;
@@ -19,15 +19,19 @@ export class AppComponent implements OnInit{
   
   
   ngOnInit(){
+    //setTimeout(()=>this.showForm=true, 1000);
     this.getFormDataService.getDynamicFormData().subscribe(
       data => {
+        console.log(data);
         this.regConfig = data;        
-        console.log(this.regConfig);
+        console.log(this.regConfig2);
+        this.showForm=true;
       },
       (err:any) => {
         console.log(err);
       }
     )
+    
 
     console.log(this.regConfig2);
   }
